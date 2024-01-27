@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Language-guided Skill Learning with Temporal Variational Inference.">
+  <meta name="keywords" content="Language, Skill Discovery, Temporal Variational Inference, LLM">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Language-guided Skill Learning with Temporal Variational Inference</title>
+
+  <script>
+    function updateSkillVideo() {
+      var skill = document.getElementById("skill-menu").value;
+
+      console.log("Loading skill:", skill)
+
+      var video = document.getElementById("skill-video");
+      video.src = "./assets/videos/skills/" + skill + "/output.mp4";
+      console.log(video.src)
+      video.playbackRate = 0.25;
+      video.play();
+
+    }
+
+    function initVideos() {
+      updateSkillVideo();
+
+      // Loop to play the trajectories
+      for (var i = 1; i <= 3; i++) {
+        var video = document.getElementById("traj" + i);
+        video.playbackRate = 0.5;
+      }
+
+    }
+  </script>
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body onload="initVideos()">
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Language-guided Skill Learning with Temporal Variational Inference</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present an algorithm for skill discovery from expert demonstrations. The algorithm utilizes Large Language Models (LLMs) to first generate an initial segmentation of the trajectories. Following that, our proposed hierarchical variational inference framework incorporates additional information generated from the LLM to discover reusable skills by merging trajectory segments. Additionally, the algorithm introduces a novel auxiliary objective based on the Minimum Description Length principle that helps guide this skill discovery process. Our results demonstrate that  agents learned this way discover skills that help accelerate learning on new long-horizon tasks in BabyAI, a gridworld navigation environment, as well as ALFRED, a household simulation environment.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+
+</section>
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns">
+            <div class="column has-text-centered">
+              <h3 class="title is-5">Put a chilled apple on the counter</h3>
+
+                <video poster="" id="traj1" autoplay controls muted loop height="30%">
+                    <source src="./assets/videos/trajectories/Put a chilled apple on the counter.mp4"
+                            type="video/mp4">
+                </video>
+            </div>
+            <div class="column has-text-centered">
+              <h3 class="title is-5">Put a microwaved potato in the sink</h3>
+
+                <video poster="" id="traj2" autoplay controls muted loop height="30%">
+                <source src="./assets/videos/trajectories/Put a microwaved potato in the sink.mp4"
+                        type="video/mp4">
+                </video>
+          </div>
+
+          <div class="column has-text-centered">
+            <h3 class="title is-5">Put two credit cards on a table</h3>
+            <video poster="" id="traj3" autoplay controls muted loop height="30%">
+              <source src="./assets/videos/trajectories/Put two credit cards on a table.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="section">
+    <div class="container is-max-widescreen">
+
+      <div class="rows">
+
+      <!-- Animation. -->
+      <div class="rows is-centered ">
+        <div class="row is-full-width">
+          <h2 class="title is-3">Skills</h2>
+
+          <div class="columns">
+            <div class="column has-text-centered">
+
+              <div class="select is-medium">
+                <select id="skill-menu" onchange="updateSkillVideo()">
+                <option value="skill5" selected="selected">Skill 5 - Navigate (kitchen and bedroom)</option>
+                <option value="skill6">Skill 6 - Take out something</option>
+                <option value="skill17">Skill 17 - Take something from the table</option>
+                <option value="skill19">Skill 19 - Put something</option>
+                <option value="skill65">Skill 65 - Navigate (bathroom and living room)</option>
+                </select>
+              </div>
+              <br/>
+              <br/>
+
+              <video id="skill-video"
+                     controls
+                     muted
+                     autoplay
+                     loop
+                     width="100%">
+                <source src=""
+                        type="video/mp4">
+              </video>
+            </div>
+
+          </div>
+          </br>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+            <p>
+                Website template borrowed from <a
+                    href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a
+                    href="https://github.com/cliport/cliport.github.io">CLIPort</a>.
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
