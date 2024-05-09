@@ -1,6 +1,6 @@
 # Language-guided Skill Learning with Temporal Variational Inference
 
-This is the repository that contains source code for the [Language-guided Skill Learning with Temporal Variational Inference website](https://language-skill-discovery.github.io/).
+This is the repository that contains source code for the [Language-guided Skill Learning with Temporal Variational Inference website](https://language-skill-discovery.github.io/)..
 
 # Website License
 Templated borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a
